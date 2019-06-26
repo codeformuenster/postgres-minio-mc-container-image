@@ -1,4 +1,6 @@
+FROM minio/mc:RELEASE.2019-06-19T22-39-53Z AS mc
 FROM postgres:11-alpine
 
-RUN wget -O /usr/local/bin/mc https://dl.min.io/client/mc/release/linux-amd64/mc \
-  && chmod +x /usr/local/bin/mc
+COPY --from=mc /usr/bin/mc /usr/bin/mc
+
+RUN apk add --no-cache ca-certificates
