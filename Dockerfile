@@ -1,5 +1,5 @@
-FROM minio/mc:RELEASE.2019-06-19T22-39-53Z AS mc
-FROM postgres:11-alpine
+FROM minio/mc:RELEASE.2019-10-09T22-54-57Z AS mc
+FROM postgres:12-alpine
 
 COPY --from=mc /usr/bin/mc /usr/bin/mc
 
